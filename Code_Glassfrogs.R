@@ -51,7 +51,7 @@ DataSpecies <- DataSpecies[,c(-1,-2)]
 d1 <- sdmData(formula=Rep1~., train=DataSpecies, predictors=v1)
 m1 <- sdm(Rep1~, data=d1, methods= c("brt", "rf", "svm"), test.percent=30, n=10)
 m1
-bios_ps <- stack(list.files(path = "D:/Desktop/Thomasomys/SDM//Bios", pattern = "tif", full.names = T))
+bios_ps <- stack(list.files(path = "D:/Desktop/Glassfrogs/SDM//Bios", pattern = "tif", full.names = T))
 names(bios_ps) <- names(bios)
 plot(bios_ps[[2]])
 e2a <- ensemble(m1,newdata=bios_ps,filename='ps.tif', setting=list(method='weighted',stat='TSS'))
@@ -124,6 +124,7 @@ ED <- evol.distinct(Phy_pruned, type = "fair.proportion")
 ED_table <- ED[order(-ED$ED), ]
 row.names(ED_table) <- NULL
 head(ED_table)
+
 
 
 
